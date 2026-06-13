@@ -7,7 +7,7 @@ for AI-powered development and automated build loops. Traditional tools force yo
 "click" or type through chains of Y/N prompts. This pipeline is purely declarative.
 You provide the inputs, it provides the CDI.
 
-The original Lazyboot was Windows-only and interactive. Most of its tools had
+The original Lazyboot toolchain was Windows-mostly and interactive. Most of its tools had
 no Linux port or equivalent, so automation was pretty hard. This project fixes that:
 everything runs non-interactively, with native Linux binaries for
 x86-64 and aarch64, no Wine needed.

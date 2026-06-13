@@ -1,14 +1,15 @@
 # mkcdi-linux (beta)
 
-Dreamcast selfboot CDI builder for Linux. Non-interactive CLI port of the lzlite/Lazyboot pipeline.
+Linux-Native CLI Selfboot Toolchain for Dreamcast
 
-Built for automation — whether that's an AI agent or a human, tired of clicking
-through prompts. Translating a game means building the same
-image hundreds of times while iterating on text. This makes that fast and less painful.
+This is a headless, non-interactive CI/CD-ready port of the Lazyboot pipeline, designed
+for AI-powered development and automated build loops. Traditional tools force you to
+"click" or type through chains of Y/N prompts. This pipeline is purely declarative.
+You provide the inputs, it provides the CDI.
 
 The original Lazyboot was Windows-only and interactive. Most of its tools had
 no Linux port or equivalent, so automation was pretty hard. This project fixes that:
-everything runs non-interactively from the command line, with native Linux binaries for
+everything runs non-interactively, with native Linux binaries for
 x86-64 and aarch64, no Wine needed.
 
 Also works on phones (aarch64), if you're crazy enough to build Dreamcast images on the go.

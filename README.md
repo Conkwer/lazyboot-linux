@@ -12,11 +12,14 @@ no Linux port or equivalent, so automation was pretty hard. This project fixes t
 everything runs non-interactively, with native Linux binaries for
 x86-64 and aarch64, no Wine needed.
 
-Also works on phones (aarch64), if you're crazy enough to build Dreamcast images on the go.
+Also works on phones (aarch64), if you're crazy enough to build Dreamcast images on the go.  
 
-Optionally uses [cdi4dc linux fork](https://github.com/Conkwer/img4dc) for ISO→CDI conversion with proper ECC/EDC.
+Why for Agents?  
+Because this tool is completely non-interactive, it integrates directly into your agent's workflow. You can push game assets to a repo, have an AI verify the build and output a ready-to-test CDI image—all without the agent getting lost in a recursive menu system or blowing through your token budget.  
 
-Tested on x86-64 (Debian 12) and aarch64 (Snapdragon 625 via Termux + Debian proot). Should work on Armbian and similar glibc-based distros. Note: will not work on bare Termux (Android bionic libc + seccomp); use proot-distro Debian or a proper Linux environment.
+Tested on x86-64 (Debian 12) and aarch64 (Snapdragon 625 via Termux + Debian proot). Should work on Armbian and similar glibc-based distros. Note: will not work on bare Termux (Android bionic libc + seccomp); use proot-distro Debian or a proper Linux environment.  
+
+Note: uses [cdi4dc linux fork](https://github.com/Conkwer/img4dc) for ISO→CDI conversion with proper ECC/EDC.
 
 ## Quick start
 

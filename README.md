@@ -5,7 +5,7 @@ Linux-Native CLI Selfboot Toolchain for Dreamcast
 This is a headless, non-interactive CI/CD-ready port of the Lazyboot pipeline, designed
 for AI-powered development and automated build loops. Traditional tools force you to
 "click" or type through chains of Y/N prompts. This pipeline is purely declarative.
-You provide the inputs, it provides the CDI. Claude Code can handle this well.
+You provide the inputs, it provides the CDI.
 
 The original Lazyboot toolchain was Windows-mostly and interactive. Most of its tools had
 no Linux port or equivalent, so automation was pretty hard. This project fixes that:

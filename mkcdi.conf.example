@@ -1,0 +1,23 @@
+# mkcdi.conf — default configuration for mkcdi.sh
+# Copy this file to mkcdi.conf and edit to set your defaults.
+
+# Game name / volume label
+ROMNAME=""
+
+# Session 2 LBA (11702 for audio/data, 45000 for data/data)
+LBA=11702
+
+# Boot binary filename (0WINCEOS.BIN auto-detected if present)
+BINARY="1ST_READ.BIN"
+
+# Directory with game data
+DATA_DIR="./data"
+
+# Output CDI filename (default: ROMNAME.cdi)
+OUTPUT=""
+
+# Sort file for mkisofs (optional)
+SORT_FILE=""
+
+# Suppress info messages (true/false)
+QUIET=false

@@ -17,7 +17,8 @@ Also works on phones (aarch64), if you're crazy enough to build Dreamcast images
 Tested on x86-64 (Debian 12) and aarch64 (Snapdragon 625 via Termux + Debian proot). Should work on Armbian and similar glibc-based distros. Note: will not work on bare Termux (Android bionic libc + seccomp); use proot-distro Debian or a proper Linux environment.  
 
 ## Notes  
-Sources for cdi4dc not included in this repo. [cdi4dc linux fork](https://github.com/Conkwer/img4dc) used for ISO→CDI conversion with proper ECC/EDC (optional).  
+Sources for cdi4dc not included in this repo. 
+[cdi4dc linux fork](https://github.com/Conkwer/img4dc) used for ISO→CDI conversion with proper ECC/EDC. Optional.  
 
 ## Quick start
 

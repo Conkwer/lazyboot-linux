@@ -2,7 +2,7 @@
 
 Dreamcast selfboot CDI builder for Linux. Non-interactive CLI port of the lzlite/Lazyboot pipeline.
 
-Optionally uses [cdi4dc](https://github.com/Conkwer/img4dc) for ISO→CDI conversion with proper ECC/EDC.
+Optionally uses [cdi4dc linux fork](https://github.com/Conkwer/img4dc) for ISO→CDI conversion with proper ECC/EDC.
 
 Tested on x86-64 (Debian) and aarch64 (Snapdragon 625 via Termux + Debian proot). Should work on Armbian and similar glibc-based distros. Note: will not work on bare Termux (Android bionic libc + seccomp); use proot-distro Debian or a proper Linux environment.
 

@@ -1,21 +1,23 @@
-# mkcdi-linux
+# mkcdi-linux (beta)
 
 Dreamcast selfboot CDI builder for Linux. Non-interactive CLI port of the lzlite/Lazyboot pipeline.
 
-Optionally uses [cdi4dc linux fork](https://github.com/Conkwer/img4dc) for ISO→CDI conversion with proper ECC/EDC.
+Optionally uses [cdi4dc](https://github.com/Conkwer/img4dc) for ISO→CDI conversion with proper ECC/EDC.
+
+Tested on x86-64 (Debian) and aarch64 (Snapdragon 625, Termux + Debian proot; should work on Armbian and similar distros).
 
 ## Quick start
 
 ```bash
-./mkcdi.sh --romname "My Game" --data-dir ./data
+./mkcdi.sh --romname mygame --data-dir ./data
 ```
 
-This creates `My Game.cdi` as an Audio/Data image (LBA 11702) using cdi4dc with proper ECC/EDC.
+This creates `mygame.cdi` as an Audio/Data image (LBA 11702) using cdi4dc with proper ECC/EDC.
 
 ## Requirements
 
 - Linux x86-64 or aarch64 (binaries auto-detected)
-- `genisoimage` or `mkisofs` (included in `system/`; falls back to system-installed)
+- `genisoimage` or `mkisofs` (included wrapper falls back to system-installed)
 - `python3` (for iso2cdi.py fallback)
 
 ## Usage
@@ -37,21 +39,21 @@ Options:
 
 ```bash
 # Standard Audio/Data image at LBA 11702 (default, uses cdi4dc with ECC)
-./mkcdi.sh --romname "MyGame" --data-dir ./mygame_data
+./mkcdi.sh --romname mygame --data-dir ./mygame_data
 
 # Custom LBA (falls back to iso2cdi.py — fast, no ECC, for testing)
-./mkcdi.sh --romname "MyGame" --lba 45000 --data-dir ./mygame_data
+./mkcdi.sh --romname mygame --lba 45000 --data-dir ./mygame_data
 
 # Custom binary name (WinCE)
-./mkcdi.sh --romname "MyGame" --binary 0WINCEOS.BIN --data-dir ./mygame_data
+./mkcdi.sh --romname mygame --binary 0WINCEOS.BIN --data-dir ./mygame_data
 
 # With sort file and custom output name
-./mkcdi.sh --romname "MyGame" --data-dir ./data --sort sortfile.str --output release.cdi
+./mkcdi.sh --romname mygame --data-dir ./data --sort sortfile.str --output release.cdi
 
 # Using a config file for defaults
 cp mkcdi.conf.example mkcdi.conf
 # Edit mkcdi.conf, then:
-./mkcdi.sh --romname "MyGame"
+./mkcdi.sh --romname mygame
 ```
 
 ## Pipeline

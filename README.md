@@ -129,7 +129,7 @@ mkcdi-linux/
 | `binhack32` | FamilyGuy (v1.0.0.5, 2011-2014), SiZiOUS (optimization) | GPLv3; bugs fixed (tail, false CD001, stream failbit) |
 | `bincon` (C) | unknown | GPLv3; original Windows binary |
 | `bincon.py` | Conkwer | GPLv3; Python port of the original |
-| `cdi4dc` | [big_fury]SiZiOUS (v0.5b, 2021) | — |
+| `cdi4dc` | [big_fury]SiZiOUS (v0.5b, 2021) | GPLv3 |
 | `cdibuilder` | Conkwer | GPLv3; C++ CDI builder, used with `--fast` or as fallback for non-11702 LBAs |
 | `iso2cdi.py` | Conkwer | GPLv3; based on PSX-Planet script (unknown author) |
 | `scramble` | Marcus Comstedt | Public Domain |

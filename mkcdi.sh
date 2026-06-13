@@ -129,7 +129,7 @@ if [ "$ELF_COUNT" -eq 1 ]; then
     ELF_FILE=$(find "$DATA_DIR" -maxdepth 1 -name "*.elf" -type f | head -1)
     $QUIET || echo "==> KOS ELF detected: $(basename "$ELF_FILE")"
 
-    ELF2BIN="$SYSTEM_DIR/elf2bin"
+    ELF2BIN="$SYSTEM_DIR/elf2bin$ARCH"
     if [ -x "$ELF2BIN" ]; then
         $QUIET || echo "  elf2bin (ELF -> scrambled 1ST_READ.BIN)"
         run "$ELF2BIN" "$ELF_FILE" "$DATA_DIR/1ST_READ.BIN"
@@ -292,17 +292,17 @@ fi  # end of KOS skip block
 
 # ── WinCE logo: inject after binhack (so bootstrap data doesn't overwrite it) ─
 if [ "$BINARY" = "0WINCEOS.BIN" ]; then
-    if [ -x "$SYSTEM_DIR/logoinsert" ] && [ -f "$SYSTEM_DIR/wince.mr" ]; then
+    if [ -x "$SYSTEM_DIR/logoinsert$ARCH" ] && [ -f "$SYSTEM_DIR/wince.mr" ]; then
         $QUIET || echo "  logoinsert (inject wince.mr)..."
-        run "$SYSTEM_DIR/logoinsert" "$SYSTEM_DIR/wince.mr" "$DATA_DIR/IP.BIN"
+        run "$SYSTEM_DIR/logoinsert$ARCH" "$SYSTEM_DIR/wince.mr" "$DATA_DIR/IP.BIN"
     fi
 fi
 
 # ── Katana logo: optional, inject after binhack ──────────────────────────────
 if $LOGO && [ "$BINARY" != "0WINCEOS.BIN" ]; then
-    if [ -x "$SYSTEM_DIR/logoinsert" ] && [ -f "$SYSTEM_DIR/logo.mr" ]; then
+    if [ -x "$SYSTEM_DIR/logoinsert$ARCH" ] && [ -f "$SYSTEM_DIR/logo.mr" ]; then
         $QUIET || echo "  logoinsert (inject logo.mr)..."
-        run "$SYSTEM_DIR/logoinsert" "$SYSTEM_DIR/logo.mr" "$DATA_DIR/IP.BIN"
+        run "$SYSTEM_DIR/logoinsert$ARCH" "$SYSTEM_DIR/logo.mr" "$DATA_DIR/IP.BIN"
     fi
 fi
 

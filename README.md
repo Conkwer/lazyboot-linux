@@ -2,6 +2,17 @@
 
 Dreamcast selfboot CDI builder for Linux. Non-interactive CLI port of the lzlite/Lazyboot pipeline.
 
+Built for automation — whether that's an AI agent or a human, tired of clicking
+through prompts. Translating a game means building the same
+image hundreds of times while iterating on text. This makes that fast and less painful.
+
+The original Lazyboot was Windows-only and interactive at every step. Most of its tools had
+no Linux port or equivalent, so automation wasn't possible — AI agents and scripts would just
+fail at the build step. This project fixes that: everything runs non-interactively from the
+command line, with native Linux binaries for x86-64 and aarch64, no Wine needed.
+
+Also works on phones (aarch64), if you're crazy enough to build Dreamcast images on the go.
+
 Optionally uses [cdi4dc linux fork](https://github.com/Conkwer/img4dc) for ISO→CDI conversion with proper ECC/EDC.
 
 Tested on x86-64 (Debian 12) and aarch64 (Snapdragon 625 via Termux + Debian proot). Should work on Armbian and similar glibc-based distros. Note: will not work on bare Termux (Android bionic libc + seccomp); use proot-distro Debian or a proper Linux environment.

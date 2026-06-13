@@ -125,7 +125,7 @@ mkcdi-linux/
 | Tool | Author | Notes |
 |------|--------|-------|
 | `mkcdi.sh` / lzlite / Lazyboot | Conkwer | GPLv3 |
-| `hack4` (C++/Python) | Conkwer | Inspired by kikuchan's original hack4 (2001); independent implementation |
+| `hack4` (C++/Python) | Conkwer | GPLv3; Inspired by kikuchan's original hack4 (2001); independent implementation |
 | `binhack32` | FamilyGuy (v1.0.0.5, 2011-2014), SiZiOUS (optimization) | GPLv3; bugs fixed (tail, false CD001, stream failbit) |
 | `bincon` (C) | unknown | GPLv3; original Windows binary |
 | `bincon.py` | Conkwer | GPLv3; Python port of the original |

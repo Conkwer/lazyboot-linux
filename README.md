@@ -6,10 +6,10 @@ Built for automation — whether that's an AI agent or a human, tired of clickin
 through prompts. Translating a game means building the same
 image hundreds of times while iterating on text. This makes that fast and less painful.
 
-The original Lazyboot was Windows-only and interactive at every step. Most of its tools had
-no Linux port or equivalent, so automation wasn't possible — AI agents and scripts would just
-fail at the build step. This project fixes that: everything runs non-interactively from the
-command line, with native Linux binaries for x86-64 and aarch64, no Wine needed.
+The original Lazyboot was Windows-only and interactive. Most of its tools had
+no Linux port or equivalent, so automation was pretty hard. This project fixes that:
+everything runs non-interactively from the command line, with native Linux binaries for
+x86-64 and aarch64, no Wine needed.
 
 Also works on phones (aarch64), if you're crazy enough to build Dreamcast images on the go.
 

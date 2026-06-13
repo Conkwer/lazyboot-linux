@@ -378,16 +378,17 @@ else
     CDI4DC="$SCRIPT_DIR/cdi4dc"
 
     # cdi4dc (proper ECC/EDC) for audio/data at LBA 11702.
-    # For other LBAs, fall back to iso2cdi.py.
+    # For other LBAs, fall back to cdibuilder.
     if [ "$LBA" = "11702" ] && [ -x "$CDI4DC" ]; then
         $QUIET || echo "  cdi4dc $ISO_FILE $OUTPUT (audio/data, LBA 11702)"
         run "$CDI4DC" "$ISO_FILE" "$OUTPUT"
     else
         if [ "$LBA" != "11702" ]; then
-            echo "Note: LBA $LBA — cdi4dc only handles LBA 11702. Using iso2cdi.py."
+            echo "Note: LBA $LBA — cdi4dc only handles LBA 11702. Using cdibuilder."
         fi
-        $QUIET || echo "  iso2cdi.py -i $ISO_FILE -o $OUTPUT -l $LBA"
-        run python3 "$SYSTEM_DIR/iso2cdi.py" -i "$ISO_FILE" -o "$OUTPUT" -l "$LBA"
+        CDIBUILDER=$(tool cdibuilder)
+        $QUIET || echo "  cdibuilder -I $ISO_FILE -o $OUTPUT -l $LBA -t audio -V '$ROMNAME'"
+        run "$CDIBUILDER" -I "$ISO_FILE" -o "$OUTPUT" -l "$LBA" -t audio -V "$ROMNAME"
     fi
 fi
 

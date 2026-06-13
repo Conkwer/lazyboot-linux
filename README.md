@@ -18,7 +18,7 @@ This creates `mygame.cdi` as an Audio/Data image (LBA 11702) using cdi4dc with p
 
 - Linux x86-64 or aarch64 (binaries auto-detected)
 - `genisoimage` or `mkisofs` (included wrapper falls back to system-installed)
-- `python3` (for iso2cdi.py fallback)
+- `python3` (for Python-based tool fallbacks)
 
 ## Usage
 
@@ -41,7 +41,7 @@ Options:
 # Standard Audio/Data image at LBA 11702 (default, uses cdi4dc with ECC)
 ./mkcdi.sh --romname mygame --data-dir ./mygame_data
 
-# Custom LBA (falls back to iso2cdi.py — fast, no ECC, for testing)
+# Custom LBA (falls back to cdibuilder — fast, no ECC, for testing)
 ./mkcdi.sh --romname mygame --lba 45000 --data-dir ./mygame_data
 
 # Custom binary name (WinCE)
@@ -64,7 +64,7 @@ cp mkcdi.conf.example mkcdi.conf
 3. `binhack32` — hack IP.BIN + binary with boot sector data and LBA
 4. `mkisofs` — create ISO with proper `-C 0,LBA` multisession parameters
 5. `cdi4dc` — convert ISO to CDI with proper ECC/EDC (for LBA 11702)
-   - Falls back to `iso2cdi.py` for non-11702 LBAs (experimental, skips ECC)
+   - Falls back to `cdibuilder` for non-11702 LBAs (fast, no ECC)
 
 ### WinCE (0WINCEOS.BIN detected)
 1. `hack4` → `bincon` (WinCE→Katana conversion) → `binhack32` → `logoinsert` (inject wince.mr)
@@ -81,10 +81,10 @@ cp mkcdi.conf.example mkcdi.conf
 | Tool | ECC/EDC | LBA support | Use case |
 |------|---------|-------------|----------|
 | `cdi4dc` | Yes | 11702 only (audio/data) | Default — reliable, proper ECC |
-| `iso2cdi.py` | No (fast) | Any | Experimental LBAs, quick testing |
+| `cdibuilder` | No (fast) | Any | Fallback for non-11702 LBAs, quick testing |
 
 cdi4dc is used by default (LBA 11702). For other LBAs (e.g., 45000 data/data),
-the script falls back to iso2cdi.py with a warning — it's faster but skips ECC,
+the script falls back to cdibuilder with a warning — it's faster but skips ECC,
 suitable for quick testing only.
 
 ## Directory structure
@@ -100,8 +100,8 @@ mkcdi-linux/
     bincon              # WinCE binary converter
     scramble            # KOS ELF scrambler (future)
     mkisofs             # ISO creation tool (genisoimage wrapper)
-    iso2cdi.py          # ISO→CDI fallback (fast, no ECC)
-    cdibuilder          # Experimental C++ CDI builder
+    iso2cdi.py          # ISO→CDI converter (Python, fast, no ECC)
+    cdibuilder          # ISO→CDI fallback (fast, no ECC)
     precon/             # IP.BIN templates
     src/                # Additional documentation
 ```
@@ -115,8 +115,8 @@ mkcdi-linux/
 | `binhack32` | FamilyGuy (v1.0.0.5, 2011-2014), SiZiOUS (optimization) | GPLv3; bugs fixed (tail, false CD001, stream failbit) |
 | `bincon` (C/Python) | Conkwer | GPLv3; ported from Windows binary |
 | `cdi4dc` | [big_fury]SiZiOUS (v0.5b, 2021) | — |
-| `cdibuilder` | Conkwer | GPLv3; experimental C++ CDI builder, used with `--fast` |
-| `iso2cdi.py` | Conkwer | GPLv3; based on PSX-Planet script (unknown author); fallback only |
+| `cdibuilder` | Conkwer | GPLv3; C++ CDI builder, used with `--fast` or as fallback for non-11702 LBAs |
+| `iso2cdi.py` | Conkwer | GPLv3; based on PSX-Planet script (unknown author) |
 | `scramble` | Marcus Comstedt | Public Domain |
 | `elf_parser` | finixbit (2018), Colton Pawielski (2022-2023) | MIT |
 | `logoinsert` | Conkwer | GPLv3; simple MR logo injector |

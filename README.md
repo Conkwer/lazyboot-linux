@@ -7,16 +7,18 @@ for AI-powered development and automated build loops. Traditional tools force yo
 "click" or type through chains of Y/N prompts. This pipeline is purely declarative.
 You provide the inputs, it provides the CDI.
 
-The original Lazyboot was Windows-only and interactive. Most of its tools had
+The original Lazyboot toolchain was Windows-mostly and interactive. Most of its tools had
 no Linux port or equivalent, so automation was pretty hard. This project fixes that:
 everything runs non-interactively, with native Linux binaries for
 x86-64 and aarch64, no Wine needed.
 
-Also works on phones (aarch64), if you're crazy enough to build Dreamcast images on the go.
+Also works on phones (aarch64), if you're crazy enough to build Dreamcast images on the go.  
 
-Optionally uses [cdi4dc linux fork](https://github.com/Conkwer/img4dc) for ISO→CDI conversion with proper ECC/EDC.
+Tested on x86-64 (Debian 12) and aarch64 (Snapdragon 625 via Termux + Debian proot). Should work on Armbian and similar glibc-based distros. Note: will not work on bare Termux (Android bionic libc + seccomp); use proot-distro Debian or a proper Linux environment.  
 
-Tested on x86-64 (Debian 12) and aarch64 (Snapdragon 625 via Termux + Debian proot). Should work on Armbian and similar glibc-based distros. Note: will not work on bare Termux (Android bionic libc + seccomp); use proot-distro Debian or a proper Linux environment.
+## Notes  
+Sources for cdi4dc not included in this repo. 
+[cdi4dc linux fork](https://github.com/Conkwer/img4dc) used for ISO→CDI conversion with proper ECC/EDC. Optional.  
 
 ## Quick start
 
@@ -123,11 +125,11 @@ mkcdi-linux/
 | Tool | Author | Notes |
 |------|--------|-------|
 | `mkcdi.sh` / lzlite / Lazyboot | Conkwer | GPLv3 |
-| `hack4` (C++/Python) | Conkwer | Inspired by kikuchan's original hack4 (2001); independent implementation |
+| `hack4` (C++/Python) | Conkwer | GPLv3; Inspired by kikuchan's original hack4 (2001); independent implementation |
 | `binhack32` | FamilyGuy (v1.0.0.5, 2011-2014), SiZiOUS (optimization) | GPLv3; bugs fixed (tail, false CD001, stream failbit) |
 | `bincon` (C) | unknown | GPLv3; original Windows binary |
 | `bincon.py` | Conkwer | GPLv3; Python port of the original |
-| `cdi4dc` | [big_fury]SiZiOUS (v0.5b, 2021) | — |
+| `cdi4dc` | [big_fury]SiZiOUS (v0.5b, 2021) | GPLv3 |
 | `cdibuilder` | Conkwer | GPLv3; C++ CDI builder, used with `--fast` or as fallback for non-11702 LBAs |
 | `iso2cdi.py` | Conkwer | GPLv3; based on PSX-Planet script (unknown author) |
 | `scramble` | Marcus Comstedt | Public Domain |

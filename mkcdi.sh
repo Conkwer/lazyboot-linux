@@ -243,7 +243,7 @@ if [ -n "$HACK4" ]; then
         if [ -f "$HACK4" ] && [[ "$HACK4" == *.py ]]; then
             run python3 "$HACK4" -w -3 -n "$LBA" "${BIN_FILES[@]}"
         else
-            run "$HACK4" -w -n "$LBA" "${BIN_FILES[@]}"
+            run "$HACK4" -w -3 -n "$LBA" "${BIN_FILES[@]}"
         fi
     fi
 else

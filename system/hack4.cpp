@@ -14,13 +14,12 @@ struct Config {
     uint32_t old_pos = 0xafc8;
     uint32_t new_pos = 0x2db6;
     bool hack0 = false;
-    bool hack1 = false;
-    bool hack2 = false;
-    bool hack3 = false;
-    bool unprotect = false;
+    bool hack1 = true;     // enabled by default (matches original hack4)
+    bool hack2 = true;     // enabled by default
+    bool hack3 = false;    // convenience: HACK1 + HACK2
+    bool unprotect = true; // enabled by default
     bool write_mode = false;
     bool show_help = false;
-    bool new_pos_set = false;  // track if -n was explicitly given
 };
 
 // Print usage information
@@ -63,21 +62,40 @@ Config parse_arguments(int argc, char* argv[]) {
                 break;
             case 'n':
                 config.new_pos = std::stoul(optarg, nullptr, 0);
-                config.new_pos_set = true;
                 break;
             case '0':
                 config.hack0 = true;
+                config.hack1 = false;
+                config.hack2 = false;
+                config.hack3 = false;
+                config.unprotect = false;
                 break;
             case '1':
+                config.hack0 = false;
                 config.hack1 = true;
+                config.hack2 = false;
+                config.hack3 = false;
+                config.unprotect = false;
                 break;
             case '2':
+                config.hack0 = false;
+                config.hack1 = false;
                 config.hack2 = true;
+                config.hack3 = false;
+                config.unprotect = false;
                 break;
             case '3':
-                config.hack3 = true;
+                config.hack0 = false;
+                config.hack1 = true;
+                config.hack2 = true;
+                config.hack3 = false;
+                config.unprotect = false;
                 break;
             case 'p':
+                config.hack0 = false;
+                config.hack1 = false;
+                config.hack2 = false;
+                config.hack3 = false;
                 config.unprotect = true;
                 break;
             case 'w':
@@ -299,14 +317,7 @@ int main(int argc, char* argv[]) {
     
     // Parse command line arguments
     Config config = parse_arguments(argc, argv);
-    
-    // Auto-enable HACK3 when -n is given without explicit hack mode flags.
-    // This matches the behavior of the original Windows hack4.exe.
-    if (config.new_pos_set && !config.hack0 && !config.hack1 && !config.hack2 && !config.hack3) {
-        config.hack3 = true;
-    }
-
-    if (config.show_help || argc == 1) {
+        if (config.show_help || argc == 1) {
         print_usage();
         return 0;
     }

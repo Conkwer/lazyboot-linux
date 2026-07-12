@@ -1,6 +1,6 @@
-# mkcdi-linux (beta)
+# Lazyboot (mkcdi) Linux (beta)
 
-Linux-Native CLI Selfboot Toolchain for Dreamcast
+Linux-Native CLI Selfboot Toolchain for Dreamcast.
 
 This is a headless, non-interactive CI/CD-ready port of the Lazyboot pipeline, designed
 for AI-powered development and automated build loops. Traditional tools force you to

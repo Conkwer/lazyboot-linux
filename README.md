@@ -1,4 +1,4 @@
-# Lazyboot - Linux (Beta).
+# Lazyboot - Linux Edition (Beta).
 
 Linux-Native CLI Selfboot Toolchain for Dreamcast.
 

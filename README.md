@@ -7,7 +7,8 @@ for AI-powered development and automated build loops. Traditional tools force yo
 "click" or type through chains of Y/N prompts. This pipeline is purely declarative.
 You provide the inputs, it provides the CDI.  
 
-Also availible as a single (and portable) All-in-One binary in a cditools toolkit. See: [cditools: mkcdi-portable-linux](https://github.com/Conkwer/cditools/tree/main/mkcdi-portable-linux) Also availible for Windows tho.
+Also availible as a single (and portable) All-in-One binary in a cditools toolkit. See: [cditools: mkcdi-portable-linux](https://github.com/Conkwer/cditools/tree/main/mkcdi-portable-linux).  
+Also availible for Windows if needed, despite the name.  
 
 The original Lazyboot toolchain was Windows-mostly and interactive. Most of its tools had
 no Linux port or equivalent, so automation was pretty hard. This project fixes that:

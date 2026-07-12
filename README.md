@@ -1,4 +1,4 @@
-# Lazyboot (mkcdi) Linux (beta)
+# Lazyboot (mkcdi) Linux. Beta.
 
 Linux-Native CLI Selfboot Toolchain for Dreamcast.
 
